@@ -1,0 +1,35 @@
+{
+  "name": "@ewarren/unitedstatesofamerica",
+  "version": "1.0.0",
+  "description": "Convert a two–letter state abbreviation to the full state name. Supports US territories.",
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/preset-env": "^7.3.1",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "start": "npm run build",
+    "prepublishOnly": "npm test && npm run build",
+    "build": "babel src -d dist",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elizabeth-Warren/unitedstatesofamerica.git"
+  },
+  "keywords": [
+    "geography",
+    "america"
+  ],
+  "author": "Joe Kent <jkent@bluestatedigital.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Elizabeth-Warren/unitedstatesofamerica/issues"
+  },
+  "homepage": "https://github.com/Elizabeth-Warren/unitedstatesofamerica#readme"
+}
