@@ -18,6 +18,14 @@ import { lookup } from '@ewarren/unitedstatesofamerica';
 lookup('NY'); // => 'New York'
 ```
 
+**Lookup the Spanish translation for a state**
+
+```js
+import { lookup, SPANISH } from '@ewarren/unitedstatesofamerica';
+
+lookup('NY', SPANISH); // => 'Nueva York'
+```
+
 **Reverse lookup the code of a state based on its name**
 
 ```js
