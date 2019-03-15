@@ -7,6 +7,8 @@ const {
   all,
   lookup,
   reverseLookup,
+  ENGLISH,
+  SPANISH,
 } = require('../dist');
 
 describe('valdiate data sources', function() {
@@ -55,5 +57,20 @@ describe('it should lookup data', function() {
   it('should not matter if what case the input is in', function() {
     assert.equal(lookup('mA'), 'Massachusetts');
     assert.equal(reverseLookup('MASSACHUSETTS'), 'MA');
+  });
+});
+
+describe('it should translate data based on language specified', function() {
+  it('should export language code helpers', function() {
+    assert.equal(ENGLISH, 'en-US');
+    assert.equal(SPANISH, 'es-MX');
+  });
+
+  it('should translate for spanish state names', function() {
+    assert.equal(lookup('ny', SPANISH), 'Nueva York');
+  });
+
+  it('should fallback to english when spanish is not available', function() {
+    assert.equal(lookup('vt', SPANISH), 'Vermont');
   });
 });

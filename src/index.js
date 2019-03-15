@@ -1,3 +1,7 @@
+export const ENGLISH = 'en-US';
+
+export const SPANISH = 'es-MX';
+
 export const states = {
   'AL': 'Alabama',
   'AK': 'Alaska',
@@ -79,18 +83,45 @@ export const all = {
   ...armedForces,
 };
 
+export const translatedAll = {
+  [ENGLISH]: {
+    ...all,
+  },
+  [SPANISH]: {
+    ...all,
+    'DC': 'Distrito de Columbia',
+    'NJ': 'Nueva Jersey',
+    'NM': 'Nuevo Mexico',
+    'NY': 'Nueva York',
+    'NC': 'Carolina del Norte',
+    'ND': 'Dakota del Norte',
+    'PA': 'Pensilvania',
+    'SC': 'Carolina del Sur',
+    'SD': 'Dakota del Sur',
+  },
+};
+
 /**
- * Lookup the name of a state for the given two letter code.
+ * Lookup the name of a state for the given two letter code and language.
  *
  * @param  {String} [code='']
+ * @param  {String} [language='en-US']
  * @return {String|null}
  */
-export function lookup(code = '') {
+export function lookup(code = '', language = ENGLISH) {
   if (! code || typeof code !== 'string' || ! code.length) {
     return null;
   }
 
-  return all[code.toUpperCase()] || null;
+  if (! language
+    || typeof language !== 'string'
+    || ! language.length
+    || ! translatedAll[language]
+  ) {
+    return null;
+  }
+
+  return translatedAll[language][code.toUpperCase()] || null;
 }
 
 /**
